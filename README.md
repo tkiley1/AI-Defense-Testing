@@ -14,13 +14,13 @@ A minimal Flask app that validates user input with Cisco AI Defense and chats wi
 2. Install dependencies:
 
 ```bash
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 ## Run locally
 
 ```bash
-python app.py
+python3 app.py
 ```
 
 Open `http://localhost:5000/`.
@@ -54,3 +54,4 @@ docker run --rm -p 5000:5000 \
 - Secrets are no longer read from text files; use `.env` or env vars.
 - The chat history is stored in the Flask session cookie and persists per browser session. Use the Clear conversation button to reset.
 - To change the model or UI theme, edit `app.py` (model name) and `templates/index.html` (CSS variables).
+
