@@ -1,6 +1,6 @@
 # Simple ChatGPT Flask App
 
-A minimal Flask app that validates user input with Cisco AI Defense and chats with OpenAI. Conversations persist per browser session. Styled with a modern, responsive UI.
+A minimal Flask app that validates user input with Cisco AI Defense and chats with OpenAI. Conversations persist per browser session. Styled with a modern, responsive UI.  OpenAI API Key and Cisco AI Defense subscription required.
 
 ## Setup
 
@@ -54,4 +54,5 @@ docker run --rm -p 5000:5000 \
 - Secrets are no longer read from text files; use `.env` or env vars.
 - The chat history is stored in the Flask session cookie and persists per browser session. Use the Clear conversation button to reset.
 - To change the model or UI theme, edit `app.py` (model name) and `templates/index.html` (CSS variables).
+
 
