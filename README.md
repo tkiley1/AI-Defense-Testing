@@ -23,7 +23,7 @@ pip3 install -r requirements.txt
 python3 app.py
 ```
 
-Open `http://localhost:5000/`.
+Open `http://localhost:8080/`.
 
 ## Docker
 
@@ -36,18 +36,27 @@ docker build -t simple-chatgpt-flask .
 Run with your environment file (recommended):
 
 ```bash
-docker run --rm -p 5000:5000 --env-file .env simple-chatgpt-flask
+docker run --rm -p 8080:8080 --env-file .env simple-chatgpt-flask
 ```
 
 Or pass variables explicitly:
 
 ```bash
-docker run --rm -p 5000:5000 \
+docker run --rm -p 8080:8080 \
   -e OPENAI_API_KEY=... \
   -e CISCO_AI_DEFENSE_API_KEY=... \
   -e FLASK_SECRET_KEY=... \
   simple-chatgpt-flask
 ```
+
+## Astroscale
+
+The repository follows Astroscale's default deployment contract:
+
+- The root `Dockerfile` builds the application.
+- The container defaults to port `8080` and serves a 2xx response at `/`.
+- Set `OPENAI_API_KEY`, `CISCO_AI_DEFENSE_API_KEY`, and `FLASK_SECRET_KEY` in the
+  Astroscale runtime environment editor before using chat.
 
 ## Notes
 

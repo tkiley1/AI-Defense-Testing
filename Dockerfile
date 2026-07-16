@@ -15,10 +15,12 @@ COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy app sources
-COPY app.py ./
+COPY app.py validation.py ./
 COPY templates ./templates
 
-EXPOSE 5000
+ENV PORT=8080
+
+EXPOSE 8080
 
 # Secrets (API keys) should be provided at runtime via --env/--env-file
-CMD ["python", "app.py"]
+CMD ["sh", "-c", "exec gunicorn --bind 0.0.0.0:${PORT:-8080} --workers 2 --threads 4 --worker-tmp-dir /dev/shm app:app"]
